@@ -29,12 +29,22 @@ class PostController extends Controller
             'imagen' => 'required'
         ]);
 
-        Post::create([
+        // Post::create([
+        //     'titulo' => $request->titulo,
+        //     'descripcion' => $request->descripcion,
+        //     'imagen' => $request->imagen,
+        //     'user_id' => Auth::user()->id
+        // ]);
+
+        // Guardar datos con las relacion creadas
+        $request->user()->posts()->create([
             'titulo' => $request->titulo,
             'descripcion' => $request->descripcion,
             'imagen' => $request->imagen,
             'user_id' => Auth::user()->id
         ]);
+
+
         return redirect()->route('posts.index', Auth::user()->username);
     }
 }
