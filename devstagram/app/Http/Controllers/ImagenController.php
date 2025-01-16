@@ -22,7 +22,7 @@ class ImagenController extends Controller
         //guardar la imagen al servidor
         $imagenServer = $manager->read($imagen);
         //agregamos efecto a la imagen con intervention
-        $imagenServer->scale(1000, 1000);
+        $imagenServer->cover(1000, 1000);
 
         //agregamos la imagen a la  carpeta en public donde se guardaran las imagenes
         $imagenPath = public_path('uploads') . '/' . $nombreImagen;

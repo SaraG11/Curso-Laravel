@@ -11,9 +11,14 @@ class PostController extends Controller
 {
     
     public function index(User $user){
-        // dd($user->username);
+
+        // $posts = Post::where('user_id', $user->id)->get();
+        $posts = Post::where('user_id', $user->id)->paginate(20);
+
+
         return view('dashboard', [
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]);
     }
 
