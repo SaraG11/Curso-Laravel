@@ -68,7 +68,7 @@ class PerfilController extends Controller
             $usuario->password = Hash::make($request->new_password);
         }
 
-        // $usuario->save();
+        $usuario->save();
         // reedireccionar al usuario
         return redirect()->route('posts.index', $usuario->username);
 
