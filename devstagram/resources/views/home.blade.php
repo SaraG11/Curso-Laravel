@@ -5,5 +5,7 @@
 @endsection
 
 @section('contenido')
-    Aqui va el contenido del header
+
+    <x-listar-post :$posts />
+
 @endsection
